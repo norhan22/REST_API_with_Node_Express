@@ -9,6 +9,8 @@
   that handle http requests 
 - [ ***Express*** ](https://expressjs.com/) is a **fast** && lightweight framework for building web applications
 
+<br>
+
 ## [ 0:57 ](https://youtu.be/pKd0Rpw7O48?t=57) - REST Services || REST APIs 
 
 - Client-Server Architecture 
@@ -27,12 +29,15 @@
    -  *PUT* for updating data
    -  *Delete* for deleting data
 
+<br>
 
 ## [ 14:58 ](https://youtu.be/pKd0Rpw7O48?t=898) - Nodemon 
 [ ***Nodemon*** ](https://nodemon.io/) is short of node monitor it's a package
   for **monitoring** || **reload** automatically changes in the app 
   - In terminal : `nodemon app.js` instead of `node app.js`  
 
+
+<br>
 
 
 ## [ 16:29 ](https://youtu.be/pKd0Rpw7O48?t=989) - Environment Variables (.env) 
@@ -53,6 +58,7 @@ process runs , it's value is set outside of the application
 - To read Variable in the application, we need to call **process object**
   `process.env.PORT` (*PORT is the Variable*)
 
+<br>
 
 ## [ 19:45 ](https://youtu.be/pKd0Rpw7O48?t=1185) - Route Parameters 
 
