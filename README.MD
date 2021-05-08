@@ -5,10 +5,11 @@
 
 ## Intro  
 
-- ***HTTP module*** is build-in module that handle http operations
-- ***Express*** is a fast && lightweight framework for building web applications
-  
-## REST Services || REST APIs
+- [ ***HTTP module*** ](https://nodejs.org/api/http.html) is build-in module
+  that handle http requests 
+- [ ***Express*** ](https://expressjs.com/) is a **fast** && lightweight framework for building web applications
+
+## [ 0:57 ](https://youtu.be/pKd0Rpw7O48?t=57) - REST Services || REST APIs 
 
 - Client-Server Architecture 
   - *Client*  is a frontend part 
@@ -25,3 +26,9 @@
    -  *POST* for creating data
    -  *PUT* for updating data
    -  *Delete* for deleting data
+
+
+## [ 14:58 ](https://youtu.be/pKd0Rpw7O48?t=898) - Nodemon 
+[ ***Nodemon*** ](https://nodemon.io/) is short of node monitor it's a package
+  for **monitoring** || **reload** automatically changes in the app 
+  - In terminal : `nodemon app.js` instead of `node app.js`  
