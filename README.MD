@@ -8,7 +8,7 @@
 - [ ***HTTP module*** ](https://nodejs.org/api/http.html) is build-in module
   that handle http requests 
 - [ ***Express*** ](https://expressjs.com/) is a **fast** && lightweight framework for building web applications
-***
+
 ## [ 0:57 ](https://youtu.be/pKd0Rpw7O48?t=57) - REST Services || REST APIs 
 
 - Client-Server Architecture 
@@ -27,14 +27,14 @@
    -  *PUT* for updating data
    -  *Delete* for deleting data
 
-***
+
 ## [ 14:58 ](https://youtu.be/pKd0Rpw7O48?t=898) - Nodemon 
 [ ***Nodemon*** ](https://nodemon.io/) is short of node monitor it's a package
   for **monitoring** || **reload** automatically changes in the app 
   - In terminal : `nodemon app.js` instead of `node app.js`  
 
 
-***
+
 ## [ 16:29 ](https://youtu.be/pKd0Rpw7O48?t=989) - Environment Variables (.env) 
 
 - *Environment Variable* is a variable that is a part of the environment in which the
@@ -53,7 +53,7 @@ process runs , it's value is set outside of the application
 - To read Variable in the application, we need to call **process object**
   `process.env.PORT` (*PORT is the Variable*)
 
-***
+
 ## [ 19:45 ](https://youtu.be/pKd0Rpw7O48?t=1185) - Route Parameters 
 
 
