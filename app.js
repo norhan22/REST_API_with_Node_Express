@@ -16,6 +16,15 @@ server.get('/api/classes', (req, res) => {
     ]
   )
 })
+// Route Parameters
+// server.get('/api/classes/:id/:name', (req, res) => {
+//   res.send(req.params)
+// })
+
+// Query string parameters
+server.get('/api/classes/:id/:name', (req, res) => {
+  res.send(req.query)
+})
 
 server.listen(port, () => { console.log(`listening on port ${port} ....`) })
 console.log('Listen to server')

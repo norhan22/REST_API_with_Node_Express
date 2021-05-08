@@ -41,12 +41,31 @@
 process runs , it's value is set outside of the application 
 
 - To Set the variable you can set it in terminal 
-    - for windows  :
-      - In Command Prompt: `set PORT=5000`
-      - In Power Shell: `$env:PORT=5000 `
-      - In Bash (Windows): `export PORT=5000`
-    - for MAC  : `export PORT=5000`
-    - If you faced a problem check this [Solution](https://stackoverflow.com/questions/53256555/not-able-to-set-process-env-port-variable-in-windows-for-node)
+  1. Stop the terminal `ctrl+c`
+  2. Text command
+       - for windows  :
+         - In Command Prompt: `set PORT=5000`
+         - In Power Shell: `$env:PORT=5000 `
+         - In B\ash (Windows): `export PORT=5000`
+       - for MAC  : `export PORT=5000` 
+
+  3.  If you faced a problem check this [Solution](https://stackoverflow.com/questions/53256555/not-able-to-set-process-env-port-variable-in-windows-for-node)
 - To read Variable in the application, we need to call **process object**
   `process.env.PORT` (*PORT is the Variable*)
 
+***
+## [ 19:45 ](https://youtu.be/pKd0Rpw7O48?t=1185) - Route Parameters 
+
+
+      server.get('/api/class/:id', (req, res) => {})
+      server.get('/api/class/:id?sortBy=name', (req, res) => {})
+      
+- `/api/classes/:id` is the endpoint path called  ***Route*** 
+- `:id` is the ***Param*** , you can use multiple params like `/api/classes/:id/:name`
+- ***Query string parameters*** is parameters that after `?` it used for provide
+  additional data to backend services like  `/api/classes/:id/:name?sortBy=name`
+- **Route Params** used for **required values** but **Query String Params** used
+  of **optional values** 
+
+- To call route param obj `req.params`
+- To call query string param obj `req.query`
