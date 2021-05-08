@@ -1,6 +1,6 @@
 # REST API with Node && Express 
 
-My Second Node app while training from [How to build a REST API with Node js & Express by Programming with Mosh
+ [How to build a REST API with Node js & Express by Programming with Mosh
 ](https://www.youtube.com/watch?v=pKd0Rpw7O48)
 
 ## Intro  
