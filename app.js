@@ -2,14 +2,14 @@
 const
   express = require('express'),
   server = express(),
-  port = process.env.PORT,
+  port = process.env.PORT || 3000,
   classes =  [
     { id: 1, name: 'arabic' },
     { id: 2, name: 'english' }
   ],
   resource = '/api/classes'
   
-server.use(express.json) 
+server.use(express.json()) 
 
 // Show PORT ENV 
 server.listen(port, () => { console.log(`listening on port ${port} ....`) })
@@ -20,6 +20,7 @@ server.listen(port, () => { console.log(`listening on port ${port} ....`) })
 // Parent dir
 server.get('/', (req, res) => {
   res.send('Node HTTP Module Hello World ')
+
 })
 
 
