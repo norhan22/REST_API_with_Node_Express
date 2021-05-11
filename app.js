@@ -1,3 +1,4 @@
+const { required } = require('joi')
 
 const
   express = require('express'),
@@ -7,7 +8,8 @@ const
     { id: 1, name: 'arabic' },
     { id: 2, name: 'english' }
   ],
-  resource = '/api/classes'
+  resource = '/api/classes',
+  Joi = require('joi')
   
 server.use(express.json()) 
 
@@ -41,11 +43,23 @@ server.get(`${resource}/:id`, (req, res) => {
 // Post Method Requests
 ////////////////////////////
 server.post(`${resource}`, (req, res) => {
-  const newClass = {
-    id: classes.length + 1,
-    name : req.body.name
+  const schema = Joi.object({
+      name: Joi.string().required()
+      // studentNumbers:Joi.number().required()
+    }),
+    validation = schema.validate(req.body)
+  if (validation.error) {
+    const errors = (validation.error.details.map(d => d.message)).join(',')
+    res.status(400).send(errors)
+    
+  } else {
+    
+    const newClass = {
+      id: classes.length + 1,
+      name : req.body.name
+    }
+    classes.push(newClass)
+    res.send(newClass)
   }
-  classes.push(newClass)
-  res.send(newClass)
 })
 
