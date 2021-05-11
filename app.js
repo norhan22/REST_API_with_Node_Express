@@ -17,6 +17,34 @@ server.use(express.json())
 server.listen(port, () => { console.log(`listening on port ${port} ....`) })
 
 ////////////////////////////
+// Common functions
+////////////////////////////
+// Check if the class  exists
+function checkExistingClass (classID, res) {
+  const id = parseInt(classID),
+    matchedClass = classes.find(c => c.id === id)
+  if (matchedClass) return matchedClass
+  else res.status(404).send('Not found')
+}
+
+// Check Validation
+function checkValidation (body, res) {
+  const
+    schema = Joi.object({
+      name: Joi.string().required()
+      // studentNumbers:Joi.number().required()
+    }),
+    {error} = schema.validate(body)
+  
+  if (error) {
+    const errors = (error.details.map(d => d.message)).join(',')
+    res.status(400).send(errors)
+    return false
+  } else  return true
+  
+
+}
+////////////////////////////
 // Get Method Requests
 ////////////////////////////
 // Parent dir
@@ -33,27 +61,16 @@ server.get(resource, (req, res) => {
 
 // Get a class by Id
 server.get(`${resource}/:id`, (req, res) => {
-  const id = parseInt(req.params.id),
-    matchedClass = classes.find(c => c.id === id)
+  const matchedClass = checkExistingClass(req.params.id, res)
   if (matchedClass) res.send(matchedClass)
-  else res.status(404).send('Not found')
 })
 
 ////////////////////////////
 // Post Method Requests
 ////////////////////////////
 server.post(`${resource}`, (req, res) => {
-  const schema = Joi.object({
-      name: Joi.string().required()
-      // studentNumbers:Joi.number().required()
-    }),
-    validation = schema.validate(req.body)
-  if (validation.error) {
-    const errors = (validation.error.details.map(d => d.message)).join(',')
-    res.status(400).send(errors)
-    
-  } else {
-    
+  if (!checkValidation(req.body, res)) return
+  else {
     const newClass = {
       id: classes.length + 1,
       name : req.body.name
@@ -61,5 +78,23 @@ server.post(`${resource}`, (req, res) => {
     classes.push(newClass)
     res.send(newClass)
   }
+ 
+ 
 })
 
+////////////////////////////
+// PUT Method Requests
+////////////////////////////
+server.put(`${resource}/:id`, (req, res) => {
+  const
+    matchedClass = checkExistingClass(req.params.id, res),
+    isValid = checkValidation(req.body, res)
+  
+  if (!matchedClass || !isValid) return
+
+  else {
+    matchedClass.name = req.body.name
+    res.send(matchedClass)
+  }
+
+})
