@@ -24,7 +24,7 @@ function checkExistingClass (classID, res) {
   const id = parseInt(classID),
     matchedClass = classes.find(c => c.id === id)
   if (matchedClass) return matchedClass
-  else res.status(404).send('Not found')
+  else res.status(404).send('The class was not found ')
 }
 
 // Check Validation
@@ -34,7 +34,7 @@ function checkValidation (body, res) {
       name: Joi.string().required()
       // studentNumbers:Joi.number().required()
     }),
-    {error} = schema.validate(body)
+    {error} = schema.validate(body) // {the property of the target object here is error}
   
   if (error) {
     const errors = (error.details.map(d => d.message)).join(',')
@@ -97,4 +97,19 @@ server.put(`${resource}/:id`, (req, res) => {
     res.send(matchedClass)
   }
 
+})
+
+////////////////////////////
+// Delete Method Requests
+////////////////////////////
+server.delete(`${resource}/:id`, (req, res) =>
+{
+  const
+    matchedClass = checkExistingClass(req.params.id, res),
+    indexOfMatchedClass = classes.indexOf(matchedClass) ?? null
+  
+  if (matchedClass) {
+    classes.splice(indexOfMatchedClass, 1)
+    res.send(classes)
+  }
 })
