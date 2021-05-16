@@ -60,6 +60,7 @@ process runs , it's value is set outside of the application
   3.  If you faced a problem check this [Solution](https://stackoverflow.com/questions/53256555/not-able-to-set-process-env-port-variable-in-windows-for-node)
 - To read Variable in the application, we need to call **process object**
   `process.env.PORT` (*PORT is the Variable*)
+- use [dotenv](https://www.npmjs.com/package/dotenv) to make node read  env from .env file 
 
 <br>
 
